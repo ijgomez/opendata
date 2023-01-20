@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration strict="true"
+           xmlns="http://logging.apache.org/log4j/2.0/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config 
+           https://raw.githubusercontent.com/apache/logging-log4j2/master/log4j-core/src/main/resources/Log4j-config.xsd">
+	<Appenders>
+		<!-- console log -->
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%-d [%10.20t] %-5p %-30F:%-3L - %-50m%n" />
+			<Filters>
+				<ThresholdFilter level="debug" onMatch="accept" />
+			</Filters>
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="org.opendata" level="debug" />
+
+		<!-- main logger -->
+		<Root level="info">
+			<AppenderRef ref="console" />
+		</Root>
+	</Loggers>
+</Configuration>
